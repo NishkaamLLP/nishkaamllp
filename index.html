@@ -8,6 +8,8 @@
     <style>
         /* Reset */
         body, html {
+            width: 100%;
+            height: 100%;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -19,89 +21,87 @@
             background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
             color: #333;
             text-align: center;
-            display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
             padding: 20px;
         }
-        .container {
-            max-width: 1200px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
+       /* Updated CSS */
 
-        .logo {
-            margin-bottom: 1rem;
-        }
+.container {
+    max-width: 1200px;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
 
-        .logo img {
-            width: 20%;
-            max-width: 200px;
-            height: auto;
-        }
+.logo {
+    margin-bottom: 2rem;
+}
 
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
+.logo img {
+    width: 55%; /* Set the logo to 25% of the screen width */
+    max-width: 700px; /* Ensure the logo doesn’t get too large on wider screens */
+    height: auto;
+}
 
-        p {
-            font-size: 1.2rem;
-            margin: 10px 0;
-            line-height: 1.6;
-            max-width: 800px;
-        }
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
 
-        .highlight {
-            color: #b375d7;
-            font-weight: bold;
-        }
+p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    line-height: 1.6;
+    max-width: 800px;
+    word-wrap: break-word;
+}
 
-        .footer {
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            color: #666;
-        }
- .highlight {
-            color: #2AF598;
-            font-weight: bold;
-        }
+.highlight {
+    color: #5a21c3;
+    font-weight: bold;
+}
 
-        /* Responsive Design */
-        @media (min-width: 768px) {
-            h1 {
-                font-size: 3rem;
-            }
-            p {
-                font-size: 1.2em;
-                max-width: 600px;
-            }
-            .logo img {
-                width: 350px; /* Increase for larger screens */
-            }
-        }
+.footer {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #666;
+}
 
-        @media (max-height: 500px) {
-            body {
-                padding: 10px;
-            }
-            h1 {
-                font-size: 2rem;
-            }
-            p {
-                font-size: 1em;
-            }
-            .footer {
-                font-size: 0.8em;
-            }
-        }
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .logo img {
+        width: 35%; /* Slightly larger logo on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    .logo img {
+        width: 45%; /* Adjust logo size further for small screens */
+    }
+}
+
+        
     </style>
     
 </head>
