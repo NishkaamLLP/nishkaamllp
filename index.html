@@ -12,54 +12,88 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #08AEEA;
+            background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
+            color: #333;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom right, #e0f7fa, #b3e5fc);
-      color: #333;
-      animation: gradientBG 15s ease infinite;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+            padding: 20px;
         }
-    
+
         h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
             color: white;
         }
+
         p {
-            font-size: 1.2em;
-      margin: 10px 0;
-      max-width: 600px;
+            font-size: 1.1em;
+            margin: 10px 0;
+            max-width: 90%;
+            line-height: 1.6;
         }
+
         .logo {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
+
         .logo img {
-            width: 180px; /* Adjusted size */
-      height: auto;
-      margin-bottom: 20px;
+            width: 300px; /* Larger size for the logo */
+            height: auto;
         }
+
         .footer {
-            position: absolute;
-      bottom: 10px;
-      width: 100%;
-      text-align: center;
-      font-size: 0.9em;
+            position: relative;
+            margin-top: 20px;
+            font-size: 0.9em;
         }
+
         .highlight {
-            color: #b375d7;
+            color: #2AF598;
             font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            p {
+                font-size: 1.2em;
+                max-width: 600px;
+            }
+            .logo img {
+                width: 350px; /* Increase for larger screens */
+            }
+        }
+
+        @media (max-height: 500px) {
+            body {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            p {
+                font-size: 1em;
+            }
+            .footer {
+                font-size: 0.8em;
+            }
         }
     </style>
 </head>
 <body>
     <div class="logo">
-        <!-- Replace 'logo.png' with the actual path to your logo file -->
+        <!-- Replace 'logo.png' with the actual path to your brand logo image -->
         <img src="logo.png" alt="Nishkaam Logo">
     </div>
     <h1>We’re Coming Soon!</h1>
@@ -67,11 +101,11 @@
         Sanitary pads are an essential part of every woman’s life, ensuring comfort and hygiene during menstruation. However, most options available today harm the environment and don’t prioritize sustainability.
     </p>
     <p>
-        Founders <span class="highlight">Foram Kundalia</span> and <span class="highlight">Khushal Katdare</span> are bringing revolutionary biodegradable products to redefine female hygiene.
+        Founders <span class="highlight">Khushal Katdare</span> and <span class="highlight">Foram Kundalia</span> are bringing revolutionary biodegradable products to redefine female hygiene.
     </p>
     <p>
         Stay tuned for <span class="highlight">Nishkaam</span> to transform the menstrual hygiene market, promoting both personal and environmental well-being.
     </p>
-    <div class="footer">© 2024 Nishkaam Innovations </div>
+    <div class="footer">© 2024 Nishkaam Innovations</div>
 </body>
 </html>
