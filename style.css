@@ -1,0 +1,115 @@
+/* Global Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(180deg, #7F00FF 0%, #E100FF 100%);
+    color: #333;
+}
+
+/* Main Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Header */
+header {
+    margin: 20px 0;
+}
+
+.title {
+    font-size: 3rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+
+.logo img {
+    width: 12cm; /* Increased width */
+    height: 12cm; /* Increased height */
+    display: block;
+    margin: 0 auto;
+}
+
+/* Urimate Image */
+.urimate-image {
+    width: 6cm; /* Width remains the same */
+    height: 10cm; /* Decreased height by 2cm */
+    display: block;
+    margin: 20px auto; /* Center the image */
+}
+/* Sections */
+section {
+    padding: 40px 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+h2 {
+    color: #5a21c3;
+    font-size: 2rem;
+}
+
+p, ul {
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+/* Images */
+.urimate-image, .logo img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Video */
+.video iframe {
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+    border: none;
+    margin: 20px auto;
+}
+
+/* Footer */
+footer {
+    font-size: 0.9rem;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p, ul {
+        font-size: 1rem;
+    }
+
+    .video iframe {
+        height: 300px;
+    }
+}
