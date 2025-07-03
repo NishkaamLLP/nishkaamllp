@@ -129,7 +129,8 @@ footer {
     padding: 24px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s;
-    text-align: justify; /* overall left align inside card */
+    text-align: left; /* paragraphs left-aligned */
+}
 }
 
 .mentor-card:hover {
@@ -141,7 +142,19 @@ footer {
     height: 100px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 16px;
+    display: block;          /* center the image */
+    margin: 0 auto 16px;     /* top/bottom spacing */
+}
+
+.mentor-name,
+.mentor-role,
+.mentor-expertise {
+    font-size: 0.9rem;
+    background: #fcf5a9ff;
+    padding: 4px 8px;
+    border-radius: 6px;
+    display: inline-block;
+    margin: 0 auto 12px;    /* center pill and add spacing */
 }
 
 .mentor-name {
@@ -165,15 +178,30 @@ footer {
     margin-bottom: 12px;
 }
 
-
 .mentor-card p {
-    text-align: justified !important;
+    text-align: justify;
     line-height: 1.6;
     margin: 0 0 12px;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
+    .title {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .urimate-image {
+        width: 80%;
+        height: auto;
+    }
+
+    .image {
+        flex-direction: column;
+    }
+} (max-width: 768px) {
     .title {
         font-size: 1.8rem;
     }
