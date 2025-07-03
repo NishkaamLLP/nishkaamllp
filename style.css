@@ -183,6 +183,19 @@ footer {
     margin: 0 0 12px;
 }
 
+.mentor-card { text-align: left; }
+
+.mentor-photo {
+  display: block;
+  margin: 0 auto 16px;   /* centers image */
+}
+
+.mentor-expertise {
+  display: inline-block;
+  margin: 0 auto 12px;   /* centers yellow pill */
+}
+
+.mentor-card p { text-align: justify; }
 @media (max-width: 768px) {
     .title {
         font-size: 1.8rem;
