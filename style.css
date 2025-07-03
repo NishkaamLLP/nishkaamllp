@@ -129,7 +129,7 @@ footer {
     padding: 24px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s;
-    text-align: left; /* overall left align inside card */
+    text-align: justify; /* overall left align inside card */
 }
 
 .mentor-card:hover {
