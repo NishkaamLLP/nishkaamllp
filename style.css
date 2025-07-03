@@ -167,7 +167,7 @@ footer {
 
 
 .mentor-card p {
-    text-align: left !important;
+    text-align: justified !important;
     line-height: 1.6;
     margin: 0 0 12px;
 }
