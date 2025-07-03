@@ -1,3 +1,4 @@
+/* Global Styles */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -114,7 +115,7 @@ footer {
     text-align: center;
 }
 
-/* Mentor Cards */
+/* Mentor / Advisor Cards */
 .mentor-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -128,6 +129,7 @@ footer {
     padding: 24px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s;
+    text-align: left; /* overall left align inside card */
 }
 
 .mentor-card:hover {
@@ -161,6 +163,13 @@ footer {
     border-radius: 6px;
     display: inline-block;
     margin-bottom: 12px;
+}
+
+
+.mentor-card p {
+    text-align: left !important;
+    line-height: 1.6;
+    margin: 0 0 12px;
 }
 
 /* Responsive Design */
