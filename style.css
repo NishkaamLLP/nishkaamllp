@@ -128,7 +128,7 @@ footer {
     padding: 24px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s;
-    text-align: left; /* paragraphs left-aligned */
+    text-align: center; /* center headings & badges */
 }
 }
 
@@ -160,12 +160,14 @@ footer {
     font-size: 1.25rem;
     font-weight: 700;
     margin: 4px 0;
+    text-align: center;
 }
 
 .mentor-role {
     color: #555;
     font-size: 0.95rem;
     margin-bottom: 8px;
+    text-align: center;
 }
 
 .mentor-expertise {
@@ -181,21 +183,9 @@ footer {
     text-align: justify;
     line-height: 1.6;
     margin: 0 0 12px;
+    padding: 0;
 }
 
-.mentor-card { text-align: left; }
-
-.mentor-photo {
-  display: block;
-  margin: 0 auto 16px;   /* centers image */
-}
-
-.mentor-expertise {
-  display: inline-block;
-  margin: 0 auto 12px;   /* centers yellow pill */
-}
-
-.mentor-card p { text-align: justify; }
 @media (max-width: 768px) {
     .title {
         font-size: 1.8rem;
