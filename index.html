@@ -1,120 +1,518 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Nishkaam Innovations LLP</title>
-  <meta name="description" content="Nishkaam Innovations LLP creates revolutionary biodegradable sanitary products to redefine female hygiene and promote sustainability.">
+  <meta name="description" content="Nishkaam Innovations LLP — biodegradable sanitary pads from stubble and UriMate portable urination device." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --green-700:#2f7a4e;
+      --green-400:#7fbf87;
+      --beige:#f7f3ea;
+      --accent:#2b7cff;
+      --muted:#6b6b6b;
+      --card:#ffffff;
+      --radius:12px;
+      --max-width:1100px;
+    }
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; background:var(--beige); color:#122; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; line-height:1.5}
+    a{color:inherit}
+    img{max-width:100%; height:auto; display:block}
+    .container{max-width:var(--max-width); margin:0 auto; padding:0 1rem}
 
-  <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" />
+    /* Header */
+    .site-header{position:sticky; top:0; background:rgba(255,255,255,0.98); backdrop-filter: blur(4px); z-index:40; border-bottom:1px solid rgba(0,0,0,0.05)}
+    .header-inner{display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.85rem 0}
+    .brand{display:flex; align-items:center; gap:.6rem; text-decoration:none}
+    .logo{height:70px; width:auto}
+    .nav{display:flex; align-items:center; gap:1rem}
+    .nav-list{list-style:none; margin:0; padding:0; display:flex; gap:.6rem; align-items:center}
+    .nav-list a{display:inline-block; padding:.45rem .6rem; border-radius:8px; text-decoration:none; color:var(--green-700); font-weight:600}
+    .nav-list a:hover{background:rgba(47,122,78,0.06)}
+    .nav-cta{margin-left:8px}
+    .btn{display:inline-block; padding:.55rem .9rem; border-radius:10px; text-decoration:none; font-weight:600; font-size:.95rem}
+    .btn-primary{background:var(--green-700); color:#fff}
+    .btn-outline{background:transparent; border:1px solid rgba(0,0,0,0.08); color:var(--green-700)}
+    .btn-highlight{background:linear-gradient(90deg,var(--accent),var(--green-400)); color:#fff}
 
-  <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="/style.css">
+    /* mobile nav toggle */
+    .nav-toggle{display:flex; align-items:center; justify-content:center; width:44px; height:44px; background:transparent; border:0; font-size:20px; color:var(--green-700)}
+
+    /* HERO */
+    .hero{position:relative; padding:4.5rem 0 3rem; color:var(--green-700); overflow:hidden}
+    .hero .hero-bg{position:absolute; inset:0; background-image:url("assets/hero-bg.jpg"); background-size:cover; background-position:center; filter:saturate(.9) contrast(.95); opacity:1}
+    .hero .overlay{position:absolute; inset:0; background:linear-gradient(180deg, rgba(47,122,78,0.44), rgba(255,255,255,0.02))}
+    .hero-inner{position:relative; z-index:2; display:flex; flex-direction:column; gap:.6rem; align-items:flex-start; padding:2rem 0}
+    .hero h1{font-size:clamp(1.6rem,3.6vw,2.6rem); margin:0; color:#ffffff; text-shadow:0 6px 18px rgba(0,0,0,0.18); font-weight:700}
+    .hero .lead{color:#f1fbf2; margin-top:.5rem; font-weight:500}
+    .hero-ctas{display:flex; gap:.6rem; margin-top:1rem}
+    .hero .btn-primary{background:rgba(255,255,255,0.95); color:var(--green-700); font-weight:700}
+    .hero .btn-outline{background:transparent; border:1px solid rgba(255,255,255,0.7); color:#fff}
+
+    /* Sections */
+    section.section{padding:2.25rem 0}
+    .section h2{color:var(--green-700); margin-bottom:.6rem; font-size:1.35rem}
+
+    /* About */
+    .about-grid{display:grid; grid-template-columns:1fr; gap:1rem; align-items:center}
+    .about-text p{color:var(--muted); margin:0 0 1rem}
+    .icon-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:.9rem; margin-top:1rem}
+    .icon-card{background:var(--card); padding:1rem; border-radius:12px; display:flex; gap:.75rem; align-items:flex-start; box-shadow:0 8px 20px rgba(17,17,17,0.04)}
+    .icon-card h4{margin:.1rem 0 0; font-size:1rem; color:var(--green-700)}
+    .about-visual{display:none}
+
+    /* Founders */
+    .founders{margin-top:1rem}
+    .founders .founder-row{display:flex; gap:1rem; align-items:center; flex-wrap:wrap}
+
+    /* Products */
+    .card-grid{display:grid; gap:1rem}
+    .product-card{background:var(--card); border-radius:12px; padding:1rem; box-shadow:0 8px 20px rgba(17,17,17,0.04); display:flex; flex-direction:column; gap:.6rem}
+    .product-card .tag{display:inline-block; background:rgba(47,122,78,0.06); color:var(--green-700); padding:.25rem .5rem; border-radius:8px; font-weight:600; font-size:.85rem}
+    .highlight-card{border:1px solid rgba(43,124,204,0.06)}
+    .product-img{width:100%; height:320px; object-fit:cover; border-radius:10px}
+    .thumbs{display:flex; gap:.6rem; align-items:center}
+    .thumbs img{width:86px; height:86px; object-fit:cover; border-radius:8px; cursor:pointer; border:3px solid transparent}
+    .thumbs img.active{border-color:var(--green-700)}
+
+    /* Advisors */
+    .advisor-grid{display:grid; gap:1rem}
+    .advisor-card{display:flex; gap:1rem; align-items:center; background:var(--card); padding:.9rem; border-radius:12px; box-shadow:0 8px 20px rgba(17,17,17,0.04)}
+    .advisor-avatar{width:110px; height:110px; object-fit:cover; border-radius:50%; flex-shrink:0}
+    .expertise-tag{display:inline-block; background:rgba(43,124,204,0.08); color:var(--green-700); padding:.18rem .5rem; border-radius:8px; font-weight:600; font-size:.8rem; margin-left:.4rem}
+
+    /* Impact */
+    .impact-grid{display:grid; gap:1rem}
+    .impact-split{display:grid; grid-template-columns:1fr; gap:1rem; align-items:center}
+    .stats{display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem}
+    .stat{background:var(--card); padding:1rem; border-radius:12px; min-width:150px; text-align:center; box-shadow:0 8px 20px rgba(17,17,17,0.04)}
+    .stat .big{font-size:1.4rem; font-weight:700; color:var(--green-700)}
+    .logos{display:flex; gap:.9rem; flex-wrap:wrap; align-items:center}
+    .logos img{height:56px; object-fit:contain; background:transparent; padding:.25rem}
+
+    /* Media */
+    .media-grid{display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .media-card{background:var(--card); padding:1rem; border-radius:12px; box-shadow:0 8px 20px rgba(17,17,17,0.04)}
+
+    /* Contact & CTA */
+    .cta{background:linear-gradient(90deg, rgba(47,122,78,0.06), rgba(43,124,204,0.02)); padding:1rem; border-radius:12px}
+    .cta-buttons{display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.6rem}
+
+    /* Footer */
+    .site-footer{padding:1rem 0; border-top:1px solid rgba(0,0,0,0.06); background:#fff}
+    .footer-inner{display:flex; gap:1rem; align-items:center; justify-content:space-between; flex-wrap:wrap}
+
+    /* Responsive */
+    @media(min-width:720px){
+      .about-grid{grid-template-columns:1fr 420px}
+      .card-grid{grid-template-columns:repeat(2,1fr)}
+      .advisor-grid{grid-template-columns:repeat(3,1fr)}
+      .impact-grid{grid-template-columns:1fr 360px}
+      .hero-inner{align-items:flex-start}
+      .nav-toggle{display:none}
+      .nav-list{display:flex}
+    }
+    @media(max-width:719px){
+      .nav-list{display:none}
+      .nav-cta{display:none}
+      .nav.open .nav-list{display:flex; flex-direction:column; gap:0; background:#fff; position:absolute; right:1rem; top:74px; padding:.8rem; border-radius:8px; box-shadow:0 10px 30px rgba(0,0,0,.08)}
+      .nav.open .nav-cta{display:block}
+      .hero{padding:3.5rem 0}
+      .logo{height:60px}
+    }
+
+    /* small utilities */
+    .muted{color:var(--muted)}
+    .small{font-size:.95rem; color:var(--muted)}
+    .flex{display:flex; gap:.6rem; align-items:center}
+    .icon-inline{width:20px; height:20px; vertical-align:middle; margin-left:6px}
+  </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <a href="/">Home</a> |
-    <a href="/mentors/">Advisors</a>
-  </nav>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home">
+        <img src="assets/logo.png" alt="Nishkaam Innovations LLP logo" class="logo">
+      </a>
 
-  <!-- Header -->
-  <header>
-    <h1 class="title">Nishkaam Innovations LLP</h1>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+
+      <nav class="nav" id="mainNav" aria-label="Main navigation">
+        <ul class="nav-list" role="menu">
+          <li role="none"><a role="menuitem" href="#home">Home</a></li>
+          <li role="none"><a role="menuitem" href="#about">About</a></li>
+          <li role="none"><a role="menuitem" href="#founders">Founders</a></li>
+          <li role="none"><a role="menuitem" href="#products">Products</a></li>
+          <li role="none"><a role="menuitem" href="#advisors">Advisors</a></li>
+          <li role="none"><a role="menuitem" href="#impact">Impact</a></li>
+          <li role="none"><a role="menuitem" href="#media">Media</a></li>
+          <li role="none"><a role="menuitem" href="#contact">Contact</a></li>
+        </ul>
+
+       
+      </nav>
+    </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="container">
-    <!-- Logo -->
-    <div class="logo">
-      <img src="logo.png" alt="Nishkaam Logo" loading="lazy">
-    </div>
-
-    <!-- About Urimate -->
-    <section class="about">
-      <h2>About Urimate</h2>
-      <p>
-        <span class="highlight">Urimate</span> is a patented biodegradable portable urination device designed for women. It features an adjustable front pelvic flap, side flaps, and a rear flap to prevent spillage, ensuring comfort and hygiene.
-      </p>
-
-      <h3>Why Urimate?</h3>
-      <ul>
-        <li>💚 100% plastic-free and eco-friendly, with an innovative design</li>
-        <li>💧 Leak-Free Design – complete protection with side + rear flaps</li>
-        <li>📏 Customizable Front Flap – S, M, L (3-in-1 size)</li>
-        <li>🧼 Clean, comfortable, and easy to use</li>
-      </ul>
-
-      <h3>Useful For</h3>
-      <ul>
-        <li>👩 Women – travel, public toilets, or dirty washrooms</li>
-        <li>🤰 Pregnant, elderly, or those with knee pain</li>
-      </ul>
-
-      <div class="image">
-        <img src="urimate.png" alt="Urimate Device" class="urimate-image" loading="lazy">
-        <img src="idealfor.png" alt="Ideal For" class="urimate-image" loading="lazy">
-        <img src="features.png" alt="Features" class="urimate-image" loading="lazy">
-        <img src="guide.png" alt="Guide" class="urimate-image" loading="lazy">
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home" aria-label="Hero: Innovating Sustainable Hygiene Solutions">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="overlay" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <h1>Innovating Sustainable Hygiene Solutions</h1>
+        <p class="lead">Biodegradable Pads from Stubble | UriMate – Our Portable Urination Device</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#products">Explore Products</a>
+         </div>
       </div>
     </section>
 
-    <!-- Sanitary Pads -->
-    <section class="pads">
-      <h2>Biodegradable Sanitary Pads</h2>
-      <p>
-        Our biodegradable sanitary pads are in the prototyping stage, aiming to provide an eco-friendly alternative to conventional products.
-      </p>
+    <!-- ABOUT -->
+    <section id="about" class="section" aria-labelledby="about-heading">
+      <div class="container about-grid">
+        <div class="about-text">
+          <h2 id="about-heading">From Stubble to Sustainability</h2>
+          <p class="muted">Nishkaam Innovations LLP is a DPIIT-recognized startup transforming crop stubble into biodegradable female hygiene products like sanitary pads and UriMate, a portable and plastic-free urination device. Our mission: reduce stubble burning, remove single-use plastics, and empower women with safe, dignified products.</p>
+
+          <div class="icon-grid" aria-hidden="false">
+            <article class="icon-card">
+              <div style="font-size:24px">🌾</div>
+              <div>
+                <h4>Stubble Utilization</h4>
+                <p class="small muted">Turning agricultural residue into valuable materials.</p>
+              </div>
+            </article>
+
+            <article class="icon-card">
+              <div style="font-size:24px">🍃</div>
+              <div>
+                <h4>Biodegradable</h4>
+                <p class="small muted"> Sustainable products that return safely to soil.</p>
+              </div>
+            </article>
+
+            <article class="icon-card">
+              <div style="font-size:24px">🔒</div>
+              <div>
+                <h4>Patented</h4>
+                <p class="small muted">Protected innovation.</p>
+              </div>
+            </article>
+
+            <article class="icon-card">
+              <div style="font-size:24px">💜</div>
+              <div>
+                <h4>Women’s Health</h4>
+                <p class="small muted">Designed with dignity and safety.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <figure class="about-visual" aria-hidden="true">
+          <img src="assets/hero-bg.jpg" alt="" style="width:100%; border-radius:12px; box-shadow:0 12px 30px rgba(0,0,0,.06)">
+        </figure>
+      </div>
     </section>
 
-    <!-- Founders -->
-    <section class="founders">
-      <h2>Founders</h2>
-      <p>
-        Meet our founders: <span class="highlight">Ms. Foram Kundalia</span> and <span class="highlight">Mr. Khushal Katdare</span> – building Nishkaam from the ground up with purpose and passion.
-      </p>
+    <!-- FOUNDERS -->
+    <section id="founders" class="section" aria-labelledby="founders-heading">
+      <div class="container">
+        <h2 id="founders-heading">Founders</h2>
+        <p class="muted">Nishkaam Innovations is Co-Founded by Mr. Khushal Katdare &amp; Ms. Foram Kundalia. They are engineers turned entrepreneurs, and are building the brand with purpose.</p>
+
+        <div class="founders" style="margin-top:1rem">
+          <div class="founder-row">
+
+            <div class="product-card" style="display:inline-flex; align-items:center; gap:0.6rem;">
+              <div>
+                <strong>Khushal Katdare</strong>
+                <div class="small muted">Co-founder</div>
+              </div>
+              <a href="https://www.linkedin.com/in/khushal-katdare/" target="_blank" rel="noopener noreferrer" title="Khushal Katdare LinkedIn">
+                <img src="assets/linkedin.png" alt="LinkedIn" class="icon-inline">
+              </a>
+            </div>
+
+            <div class="product-card" style="display:inline-flex; align-items:center; gap:0.6rem;">
+              <div>
+                <strong>Foram Kundalia</strong>
+                <div class="small muted">Co-founder</div>
+              </div>
+              <a href="https://www.linkedin.com/in/foram-kundalia/" target="_blank" rel="noopener noreferrer" title="Foram Kundalia LinkedIn">
+                <img src="assets/linkedin.png" alt="LinkedIn" class="icon-inline">
+              </a>
+            </div>          
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Achievements -->
-    <section class="achievements">
-      <h2>Achievements</h2>
-      <ul>
-        <li>DPIIT-approved startup</li>
-        <li>20+ Intellectual properties (India and international)</li>
-        <li>3 Government of India grants</li>
-        <li>Spoke at Menstrual Hygiene Summit 2024, Bharat Mandapam</li>
-        <li>Top 100 innovations – SIF, IISF</li>
-        <li>Top 32 – SmartIdeathon</li>
-        <li>Top 28 – KIT Kolhapur IRF Program</li>
-      </ul>
+    <!-- PRODUCTS -->
+    <section id="products" class="section" aria-labelledby="products-heading">
+      <div class="container">
+        <h2 id="products-heading">Products</h2>
+        <div class="card-grid" role="list">
+          <!-- Pads -->
+          <article class="product-card" role="listitem">
+            <h3>Biodegradable Sanitary Pads <span class="tag">Coming Soon</span></h3>
+            <p class="muted"><strong>Biodegradable pads made using crop stubble.</strong> <br> Only about 30% of women in India currently use menstrual products. <br><br>Conventional plastic pads take ~800 years to degrade, and stubble burning causes severe air pollution. <br><br>We are turning stubble into safe, compostable pads to improve hygiene and reduce environmental harm. <br><br>Bulk orders & partnerships welcome.</p>
+            <div style="margin-top:auto; display:flex; gap:.5rem;">
+              <a class="btn btn-outline" href="https://forms.gle/egGsyFmDhV8M1cNRA" target="_blank" rel="noopener noreferrer">Bulk / Partnership</a>
+            </div>
+          </article>
+
+          <!-- UriMate -->
+          <article class="product-card highlight-card" role="listitem" aria-labelledby="urimate-title">
+            <h3 id="urimate-title">UriMate – Portable Urination Device</h3>
+            <img id="mainProductImg" class="product-img" src="assets/urimate-1.png" alt="UriMate portable urination device — main view">
+            <div class="thumbs" role="tablist" aria-label="UriMate images">
+              <img class="thumb active" src="assets/urimate-1.png" alt="UriMate view 1" role="tab" tabindex="0">
+              <img class="thumb" src="assets/urimate-2.png" alt="UriMate view 2" role="tab" tabindex="0">
+              <img class="thumb" src="assets/urimate-3.png" alt="UriMate view 3" role="tab" tabindex="0">
+            </div>
+
+            <p class="muted"><strong>About UriMate:</strong> A patented & plastic free device for hygienic urination on the go. Adjustable front flap (S/M/L), side & rear flaps to prevent spillage.</p>
+
+            <p class="muted"><strong>Why UriMate?</strong> 100% plastic-free • Leak proof • 3-in-1 customizable front flap • Ideal for travel, public toilets, pregnancy, elderly & knee pain.</p>
+
+            <div style="display:flex; gap:.6rem; margin-top:.6rem">
+ 
+              <a class="btn btn-primary" href="https://amzn.in/d/28nWjED" target="_blank" rel="noopener noreferrer">Buy UriMate on Amazon</a>
+ 
+              <a class="btn btn-outline" href="https://forms.gle/egGsyFmDhV8M1cNRA" target="_blank" rel="noopener noreferrer">Bulk / Partnership</a>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <!-- Pledge -->
-    <section class="pledge">
-      <h2>Our Pledge</h2>
-      <p>
-        In 2025, we commit to educating 100,000 women about menstrual hygiene, promoting health and sustainability.
-      </p>
+    <!-- ADVISORS -->
+    <section id="advisors" class="section" aria-labelledby="advisors-heading">
+      <div class="container">
+        <h2 id="advisors-heading">Our Mentors & Advisors</h2>
+
+        <div class="advisor-grid" role="list">
+          <article class="advisor-card" role="listitem">
+            <img class="advisor-avatar" src="assets/amit-sata.jpg" alt="Dr Amit Sata">
+            <div>
+              <h4>Dr. Amit Sata <span class="small muted">— Mentor | Manufacturing</span></h4>
+              <div style="margin-top:.25rem"><span class="expertise-tag">Casting & Manufacturing</span></div>
+              <p class="small muted" style="margin-top:.5rem">Professor and researcher (PhD, IIT Bombay), specialises in casting & manufacturing processes. He mentors our scale up of stubble processing and sustainable product development.</p>
+              <p style="margin-top:.4rem"><a class="btn btn-outline" href="https://www.linkedin.com/in/dramitsata" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+            </div>
+          </article>
+
+          <article class="advisor-card" role="listitem">
+            <img class="advisor-avatar" src="assets/vivek-patel.jpeg" alt="Prof Vivek Patel">
+            <div>
+              <h4>Prof Vivek Patel <span class="small muted">— Co-Mentor | CAD & CAM</span></h4>
+              <div style="margin-top:.25rem"><span class="expertise-tag"> ME CAD / CAM</span></div>
+              <p class="small muted" style="margin-top:.5rem">Assistant Professor supporting us with 3D design, prototyping and machine design for production.</p>
+              <p style="margin-top:.4rem"><a class="btn btn-outline" href="https://www.linkedin.com/in/vivek-patel-09878077" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+            </div>
+          </article>
+
+          <article class="advisor-card" role="listitem">
+            <img class="advisor-avatar" src="assets/dhaval-anadkat.jpeg" alt="Prof Dhaval Anadkat">
+            <div>
+              <h4>Prof Dhaval Anadkat <span class="small muted">— Co-Mentor | Industrial IoT</span></h4>
+              <div style="margin-top:.25rem"><span class="expertise-tag">Smart Foundry & IoT</span></div>
+              <p class="small muted" style="margin-top:.5rem">Assistant Professor specializing in Industrial IoT applications for manufacturing and casting. He advises on sensor based automation techniques and approaches for our production workflows.</p>
+              <p style="margin-top:.4rem"><a class="btn btn-outline" href="https://www.linkedin.com/in/dhaval-anadkat-36a910a9" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+            </div>
+          </article>
+
+        </div>
+      </div>
     </section>
 
-    <!-- Contact -->
-    <section class="contact">
-      <h2>Contact Us</h2>
-      <p>To join our pledge or collaborate with us, reach out:</p>
-      <div class="social-icons">
-        <a href="mailto:nishkaaminnovations@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-        <a href="https://wa.me/919173801621" target="_blank" rel="noopener" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://www.linkedin.com/company/nishkaam-innovations-llp" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/nishkaaminnovations" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <!-- IMPACT & RECOGNITION -->
+    <section id="impact" class="section" aria-labelledby="impact-heading">
+      <div class="container impact-grid">
+        <div class="impact-split" aria-hidden="false">
+          <h2 id="impact-heading">Impact</h2>
+          <p class="muted">Our reach through pilots, events and product trials.</p>
+
+          <div class="stats" role="list">
+            <div class="stat" role="listitem">
+              <div class="big">1,000+</div>
+              <div class="small muted">user feedbacks collected</div>
+            </div>
+
+            <div class="stat" role="listitem">
+              <div class="big">1500+</div>
+              <div class="small muted">kg stubble reused</div>
+            </div>
+
+            <div class="stat" role="listitem">
+              <div class="big">5000+</div>
+              <div class="small muted"> conventional pads replaced (est.)</div>
+            </div>
+          </div>
+        </div>
+
+        <aside aria-label="Recognition and certificates" style="padding:0 0 0 .5rem">
+          <h3>Recognition & Supporters</h3>
+          <div class="logos" role="img" aria-hidden="false">
+            <img src="assets/dpiit2.png" alt="DPIIT recognition logo">
+            <img src="assets/mu.png" alt="Marwadi University">
+            <img src="assets/gsbtm.png" alt="GSBTM logo">
+            <img src="assets/nidhi.png" alt="NIDHI logo">
+            <img src="assets/stbi.png" alt="STBI logo">
+            <img src="assets/pdeu.png" alt="PDEU">
+            <img src="assets/newgen.png" alt="NewGen logo">
+            <img src="assets/et-logo.png" alt="Economic Times">
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- MEDIA & AWARENESS -->
+    <section id="media" class="section" aria-labelledby="media-heading">
+      <div class="container">
+        <h2 id="media-heading">Media & Coverage</h2>
+        <div class="media-grid">
+          <article class="media-card">
+            <h4>The Indian Express</h4>
+            <p class="small muted">"Rajkot startup turns crop waste into biodegradable sanitary napkins" — Aug 2025</p>
+            <p><a class="btn btn-outline" href="https://indianexpress.com/article/cities/ahmedabad/rajkot-startup-turns-crop-waste-into-biodegradable-sanitary-napkins-10176278/" target="_blank" rel="noopener noreferrer">Read Article</a></p>
+          </article>
+
+          <article class="media-card">
+            <h4>NDTV - MHM Summit held at Bharat Mandapam</h4>
+            <p class="small muted">Coverage from Menstrual Hygiene Summit — Nov 2024</p>
+            <p><a class="btn btn-outline" href="https://youtu.be/9EQ1sC99tUo?si=DM7jb_xVsrUBUnEM" target="_blank" rel="noopener noreferrer">Watch</a></p>
+          </article>
+
+          <article class="media-card">
+            <h4>Gujarat Headline - Feature World IP Day</h4>
+            <p class="small muted">University & press coverage on IP initiatives</p>
+            <p><a class="btn btn-outline" href="https://www.gujaratheadline.com/marwadi-university-sets-new-benchmark-on-world-ip-day-with-100-patents-filing-spearheading-innovation-for-national-development/" target="_blank" rel="noopener noreferrer">Read</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT & CTA -->
+    <section id="contact" class="section" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="cta" role="region" aria-labelledby="contact-heading">
+          <h2 id="contact-heading">Join Us in Building a Sustainable Future</h2>
+          <p class="muted">Partner, collaborate, or support our mission.</p>
+
+          <div class="cta-buttons">
+            <a class="btn btn-outline" href="https://forms.gle/egGsyFmDhV8M1cNRA" target="_blank" rel="noopener noreferrer">Partner With Us</a>
+            <a class="btn btn-primary" href="mailto:nishkaaminnovations@gmail.com">Contact Us</a>
+            <a class="btn btn-highlight" href="https://amzn.in/d/28nWjED" target="_blank" rel="noopener noreferrer">Shop UriMate</a>
+          </div>
+
+          <div style="margin-top:.9rem">
+            <div id="contact-icons" class="flex" aria-label="Social links">
+              <a href="mailto:nishkaaminnovations@gmail.com" title="Email">
+                <img src="assets/gmail.png" alt="Email" style="height:28px">
+              </a>
+              <a href="https://wa.me/919173801621" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+                <img src="assets/whatsapp.png" alt="WhatsApp" style="height:28px">
+              </a>
+              <a href="https://www.linkedin.com/company/nishkaam-innovations-llp/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                <img src="assets/linkedin.png" alt="LinkedIn" style="height:28px">
+              </a>
+              <a href="https://www.instagram.com/nishkaaminnovations/?utm_source=qr&igsh=OXo2NWRpbG54ajhl" target="_blank" rel="noopener noreferrer" title="Instagram">
+                <img src="assets/instagram.png" alt="Instagram" style="height:28px">
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Nishkaam Innovations LLP. All rights reserved.</p>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div>
+        <strong>Nishkaam Innovations LLP</strong>
+        <p class="small muted">© <span id="year"></span> All rights reserved.</p>
+      </div>
+
+    </div>
   </footer>
+
+  <script>
+    (function(){
+      // set year
+      var yEl = document.getElementById('year');
+      if(yEl) yEl.textContent = new Date().getFullYear();
+
+      // mobile nav toggle
+      var navToggle = document.getElementById('navToggle');
+      var mainNav = document.getElementById('mainNav');
+      if(navToggle && mainNav){
+        navToggle.addEventListener('click', function(){
+          mainNav.classList.toggle('open');
+        });
+      }
+
+      // product thumbnails -> swap main image
+      var mainImg = document.getElementById('mainProductImg');
+      var thumbs = document.querySelectorAll('.thumbs .thumb');
+      if(mainImg && thumbs.length){
+        thumbs.forEach(function(t){
+          t.addEventListener('click', function(){
+            try{
+              mainImg.src = t.src;
+              thumbs.forEach(function(x){ x.classList.remove('active'); });
+              t.classList.add('active');
+            }catch(e){ console.warn(e) }
+          });
+          // keyboard support
+          t.addEventListener('keypress', function(e){
+            if(e.key === 'Enter' || e.key === ' '){
+              t.click();
+            }
+          });
+        });
+      }
+
+      // smooth scroll for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(function(a){
+        a.addEventListener('click', function(e){
+          var href = a.getAttribute('href');
+          if(href.length > 1){
+            var dest = document.querySelector(href);
+            if(dest){
+              e.preventDefault();
+              dest.scrollIntoView({behavior:'smooth', block:'start'});
+              if(mainNav && mainNav.classList.contains('open')) mainNav.classList.remove('open');
+            }
+          }
+        });
+      });
+
+      // quick asset check - logs missing assets
+      var requiredAssets = [
+        'assets/logo.png','assets/hero-bg.jpg',
+        'assets/urimate-1.png','assets/urimate-2.png','assets/urimate-3.png',
+        'assets/amit-sata.jpg','assets/dhaval-anadkat.jpeg','assets/vivek-patel.jpeg',
+        'assets/dpiit2.png','assets/gsbtm.png','assets/nidhi.png',
+        'assets/newgen.png','assets/stbi.png','assets/mu.png','assets/pdeu.png','assets/et-logo.png',
+        'assets/linkedin.png','assets/instagram.png','assets/gmail.png','assets/whatsapp.png'
+      ];
+      requiredAssets.forEach(function(p){
+        var img = new Image();
+        img.onload = function(){ /* ok */ };
+        img.onerror = function(){ console.warn('Missing asset:', p); };
+        img.src = p;
+      });
+    })();
+  </script>
 </body>
 </html>
